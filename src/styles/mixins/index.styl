@@ -1,0 +1,146 @@
+@require './clearfix.styl';
+@require './media.styl';
+@require './grid.styl';
+@require './colors.styl';
+
+stretch()
+  position absolute
+  top 0
+  bottom 0
+  left 0
+  right 0
+
+bg-icon(image = null, size = null, bgsize = null)
+  background-position center center
+  background-repeat no-repeat
+  background-image url(image) if image
+  background-size bgsize if bgsize
+  border none
+  width size if size
+  height size if size
+
+bg-icon-image(image)
+  background-image url(image)
+
+styled-scroll()
+
+  &::-webkit-scrollbar
+    width 5px
+
+  &::-webkit-scrollbar-track
+    border-radius 4px
+    background-color #e6e4e4
+
+  &::-webkit-scrollbar-thumb
+    border-radius 4px
+    background-color pale-teal-two
+    
+    
+triangle(type = top, size = 10px, color = black)
+	width 0
+	height 0
+	
+	pairs = {
+	  top: bottom,
+	  bottom: top,
+	  left: right,
+	  right: left
+	}
+
+	for side, opposite in pairs
+	  if side is opposite
+	    border-{side} size solid color
+    else if side isnt type
+      border-{side} size solid transparent
+      
+pseudo-triangle(pos = top, size = 28px)
+  content "◆"
+  position absolute
+  top -1em
+  left 50%
+  width 1em
+  font-size 28px
+  margin-left -0.5em
+  color white
+
+  {pos} -1em
+  margin-{pos} 0.6ex
+  
+  if pos is top or pos is bottom
+    left 50%
+    margin-left -0.5em
+
+  else
+    top 50%
+    margin-top -0.5em
+    
+items-separator(size = 1.5ex, color = #666)
+  > * + *
+    position relative
+    
+    &:before
+      content ""
+      display inline-block
+      border-left solid 1px color
+      position absolute
+      left 0
+      top 50%
+      width 1px
+      height size
+      margin-top -(size / 2)
+
+max-lines(lines = 1, fixed = false)
+  prop = fixed ? height : max-height
+  
+  overflow-y hidden
+  {prop} (@font-size * @line-height * lines)
+  
+clipped-line()
+  display block
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  
+clipped-text(lines = 1, fixed = true)
+  height-prop = fixed ? height : max-height
+  
+  display block
+  display -webkit-box
+  -webkit-line-clamp lines
+  -webkit-box-orient vertical
+  {height-prop} (@font-size * @line-height * lines)
+  overflow hidden
+  text-overflow ellipsis
+
+transform(args...)
+  -webkit-transform args
+  transform args
+
+button-variant(color, background)
+  color color
+  background-color background
+  &:hover,
+  &:focus
+    background darken(background, 8%)
+  &:active
+    background darken(background, 15%)
+
+size(width, height = width)
+    width width
+    height height
+
+caret(color, direction, size)
+    content ' '
+    display block
+    position absolute
+    top 50%
+    right 0
+    margin-top 2px
+    size(0)
+    border-style solid
+    if direction == 'up'
+        border-width 0 size size size
+        border-color transparent transparent color transparent
+    else
+        border-width size size 0 size
+        border-color color transparent transparent transparent

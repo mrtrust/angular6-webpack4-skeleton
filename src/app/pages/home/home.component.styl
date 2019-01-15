@@ -1,0 +1,51 @@
+@require "~styles/common/variables.styl";
+
+.home
+  &__content
+    display flex
+  &__content-left
+    padding-top 20px
+    border-right solid 1px #f1f1f1
+    flex-shrink 0
+  &__content-right
+    flex-grow 1
+  &__tabs-container
+    height 50px
+    padding 20px 0 10px 0
+    border-bottom solid 1px #dfdfdf
+  &__tabs
+    text-align center
+    font-size 0
+  &__tab-container
+    display inline-block
+  &__tab
+    font-size default-font-size
+    display inline-block
+    text-align center
+    width 125px
+    color #c7c7cc
+    padding-bottom 11px
+  &__tab:hover,
+  &__tab_active
+    color #3459a1
+    border-bottom 1px solid #3459a1
+
+.home-feed
+  width 590px
+  &__review
+    display block
+    margin-bottom 20px
+
+.trending
+  width 100%
+  padding 20px 40px
+  &__header
+    font-size 18px
+    font-weight bold
+    color #3459a1
+    margin-top 0
+  &__movie
+    display block
+    margin-top 10px
+    &:first-child
+      margin-top 0

@@ -1,0 +1,38 @@
+<div class="pagination">
+
+    <div class="pagination_info">
+        {{ pageFirstRowIndex() }} - {{ pageLastRowIndex() }}
+    </div>
+
+    <button class="pagination__btn pagination__first-btn"
+            (click)="goPage(1)"
+            [disabled]="pagination.page == 1">
+        &laquo;
+    </button>
+    <button class="pagination__btn pagination__previous-btn"
+            (click)="goPage(pagination.page - 1)"
+            [disabled]="pagination.page <= 1">
+        &lsaquo;
+    </button>
+
+    <input type="text"
+           [ngModel]="pagination.page"
+           (ngModelChange)="page = $event; pagination.page = $event"
+           (change)="goPage(page)"
+           class="pagination__input">
+
+    <div class="pagination_info">of {{ lastPage() }}</div>
+
+    <button class="pagination__btn pagination__next"
+            (click)="goPage(pagination.page + 1)"
+            [disabled]="pagination.page >= lastPage()">
+        &rsaquo;
+    </button>
+    <button class="pagination__btn pagination__last-btn"
+            (click)="goPage(lastPage())"
+            [disabled]="pagination.page == lastPage()">
+        &raquo;
+    </button>
+
+</div>
+

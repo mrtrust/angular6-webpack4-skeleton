@@ -1,0 +1,61 @@
+@require "./variables.styl";
+@require "~styles/mixins/media.styl";
+@require "~styles//mixins/grid.styl";
+
+.main-container
+  container('fixed', 0)
+  &_grey
+    background grey-panel
+
+.main-container--fluid
+  container(fluid)
+
+for $size, $value in $media_sizes
+
+  .h-show-{$size}
+    media-show($size)
+
+  .h-hide-{$size}
+    media-hide($size)
+
+.grid-table
+  width 100%
+  border-collapse collapse
+
+  th,
+  td
+    text-align left
+    border-bottom 2px solid #f4f4f4
+    padding 15px 3px
+
+  th
+    font-size 14px
+    color #8c8c8c
+    font-weight 300
+    .grid-table__content&
+      font-weight 700
+
+  td
+    font-size 16px
+    color black
+
+.grid-table-border
+  width 100%
+  border-collapse collapse
+
+  th,
+  td
+    text-align left
+
+  th
+    font-size 14px
+    color #8c8c8c
+    padding 15px 25px
+    border 2px solid #f4f4f4
+
+  td
+    font-size 18px
+    color black
+    border 2px solid #f4f4f4
+    padding 15px 25px
+

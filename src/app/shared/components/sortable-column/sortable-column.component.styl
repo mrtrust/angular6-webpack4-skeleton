@@ -1,0 +1,17 @@
+@require "~styles/mixins";
+
+.sorter
+  cursor pointer
+
+  &__icon-asc,
+  &__icon-desc
+    display inline-block
+    margin-left 3px
+    width 12px
+    height 9px
+
+  &__icon-asc
+    bg-icon('./images/sort-asc.icon.png')
+
+  &__icon-desc
+    bg-icon('./images/sort-desc.icon.png')

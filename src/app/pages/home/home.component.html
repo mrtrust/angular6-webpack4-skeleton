@@ -1,0 +1,21 @@
+<div class="home">
+    <div class="main-container">
+        <h2>Homepage</h2>
+        <div *ngIf="reports && reports.length">
+            <table class="grid-table" [(sortable-table)]="reportsFilterParams" (onSort)="getAll()">
+                <tr>
+                    <th sortable-column="id">Id</th>
+                    <th sortable-column="name" sort-direction="asc">Name</th>
+                </tr>
+                <tr *ngFor="let report of reports">
+                    <td>{{report.id}}</td>
+                    <td>{{report.name}}</td>
+                </tr>
+            </table>
+            <pagination [pagination]="pagination"
+                        (onPageChange)="getAll($event)">
+            </pagination>
+        </div>
+        <h2 *ngIf="reports && !reports.length">No results matched your search</h2>
+    </div>
+</div>

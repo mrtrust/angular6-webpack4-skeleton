@@ -1,0 +1,110 @@
+@require '~styles/mixins/index.styl';
+@require '~styles/mixins/colors.styl';
+
+.form-control
+  width 100%
+  border-radius 4px
+  height 40px
+  padding 10px 12px
+  font-size 16px
+  font-weight 400
+  color rgba(0, 0, 0, 0.7)
+  border 1px solid #f0f0f0
+  background #fff
+  &[type="checkbox"]
+    width 30px
+  &_70
+    width 70%
+  &_80
+    width 80%
+  &_20
+    width 20%
+  &_30
+    width 30%
+  &_half
+    width 50%
+  &_time, &_40
+    width 40%
+  &:focus
+    border 1px solid #007eff
+  &_auth,
+  &_auth:focus
+    border none
+    padding 10px 0
+    border-radius 0
+    border-bottom solid 1px #dfdfdf
+  &[disabled="disabled"]
+    background #eee
+    cursor not-allowed
+
+.form-button
+  &:hover
+    color white
+  &[disabled="disabled"]
+    opacity 0.45
+  display inline-block
+  padding 10px 15px
+  font-size 14px
+  border none
+  button-variant(white, links-color)
+  &_danger
+    button-variant(white, #d9534f)
+
+.form-horizontal
+  .form-group
+    table-row(gutter:15px, halign:left)
+    > .label
+      width 30%
+      text-align right
+      padding-right 20px
+    > .label_top
+      vertical-align top
+      padding-top 10px
+    > .label_left
+      text-align left
+  .form-group_valign-top
+    > *
+      vertical-align top
+
+  .form-group:not(.ng-hide):first-child
+    margin 0
+
+  .form-group:not(.ng-hide)
+    margin-top 20px
+
+  .input-group
+    inline-row(gutter:10px, noconflict:true)
+    :first-child + .selectize-control,
+    :first-child + .arm-control
+      margin-left 0
+    [date-picker-wrapper] + *
+      margin-left 0
+    > .input-row
+      display block
+      margin-left 0
+      > *
+        vertical-align middle
+      * + label
+        margin-left 15px
+      > span
+        > .form-control
+          display inline-block
+      > .form-control, .selectize-control, .arm-control
+        display inline-block
+
+.form-auth
+  .form-group
+    label
+      color grey-light
+      font-size 14px
+
+  .form-group:not(.ng-hide)
+    margin-top 20px
+  .input-group
+    inline-row(gutter:10px, noconflict:true)
+  input.ng-touched.ng-invalid
+    border-bottom solid 1px #f3594f
+
+.form-error
+  color: #a94442;
+  margin 24px 0

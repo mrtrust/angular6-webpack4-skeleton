@@ -1,0 +1,17 @@
+# Logs
+logs
+*.log
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+~/
+.env
+.idea
+dist/webpack-visualizer-report.html
+dist/webpack-bundle-analyzer-report.json
+dist/webpack-bundle-analyzer-report.htm
+aot
+webpack-cache
+

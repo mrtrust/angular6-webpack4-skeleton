@@ -1,0 +1,94 @@
+@require "~styles/common/variables.styl";
+@require "./clearfix.styl";
+
+/* Helpers */
+
+getContainerWidth($screen-size)
+  ($screen_widths[$screen-size])
+
+///
+
+/* Container */
+
+container(type = 'fixed', gutter = null)
+  min-width getContainerWidth(xs)
+  margin-left auto
+  margin-right auto
+
+  for $size in $media_sizes
+    +media($size)
+      $padding = gutter ? gutter:$content_container_paddings[$size]
+      padding-left $padding
+      padding-right $padding
+
+      if type is 'fixed'
+        width getContainerWidth($size)
+
+      if type is 'half'
+        width (getContainerWidth($size) / 2)
+
+container-width(type = 'fixed')
+  min-width getContainerWidth(xs)
+  for $size in $media_sizes
+    +media($size)
+      if type is 'fixed' and $size isnt xs
+        width getContainerWidth($size)
+      if type is 'half' and $size isnt xs
+        width (getContainerWidth($size) / 2)
+
+/* Row */
+
+table-row(layout = null, halign = center, valign = middle)
+  display table
+  table-layout layout if layout
+  width 100%
+  text-align halign
+
+  > *
+    display table-cell
+    vertical-align valign
+
+inline-row(gutter = 0, valign = null, halign = null, multiline = false, noconflict = false, gutter-direction = left, gutter-vertical = 0)
+  font-size 0 if !noconflict
+  text-align halign if halign
+
+  > *
+    display inline-block
+    font-size 16px if !noconflict
+    vertical-align valign if valign
+    margin-bottom gutter-vertical if gutter-vertical
+
+  if valign is middle
+    &:before
+      content ""
+      height 100%
+      display inline-block
+      vertical-align middle
+
+  if gutter > 0
+
+    if multiline
+      margin (gutter / -2)
+      > *
+        margin (gutter / 2)
+    else if gutter-direction is left
+      > * + *
+        margin-left gutter
+    else if gutter-direction is right
+      > *
+        margin-right gutter
+
+float-row(gutter = 0, content_box = false)
+  clearfix()
+
+  for $size in $media_sizes
+    +media($size)
+      display block
+      margin-left (gutter / -2)
+      margin-right (gutter / -2)
+
+      > *
+        float left
+        box-sizing content-box if content_box
+        padding-left (gutter / 2)
+        padding-right (gutter / 2)

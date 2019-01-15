@@ -1,0 +1,41 @@
+// @require "../config/screen-sizes.json";
+
+xs = 'xs'
+sm = 'sm'
+md = 'md'
+lg = 'lg'
+
+default-font-size = 16px
+
+$screen_widths = {
+  // xs: 320px,
+  // sm: 740px,
+  // md: 1000px,
+  xs: 960px
+}
+
+$media_sizes = keys($screen_widths)
+$media_sizes_count = length($media_sizes)
+
+$gutter_width = 30px
+
+/* Gutters */
+
+$gutters = {}
+$base_gutter_width = 30px
+
+for $size, $i in $media_sizes
+  $gutters[$size] = $base_gutter_width + $i * 10
+
+/* Padding of Containers*/
+
+$container_paddings = {
+  // xs: 25px,
+  // sm: 30px,
+  // md: 30px,
+  xs: 15px
+}
+
+$content_container_paddings = {
+  xs: 0
+}

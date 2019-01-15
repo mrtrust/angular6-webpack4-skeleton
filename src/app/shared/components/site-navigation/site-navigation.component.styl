@@ -1,0 +1,44 @@
+@require "~styles/mixins";
+
+.site-navigation
+  background #f1f1f1
+
+  height 60px
+  padding 10px 0
+  &__wrapper
+    display flex
+  &__logo
+    height 40px
+    width 32px
+
+  &__search
+    width 463px
+  &__search-icon
+    margin-top 10px
+    padding-top 20px
+    display inline-block
+    height 20px
+    width 20px
+    background url("./images/search.png") no-repeat;
+
+  &__links
+    margin-left auto
+    padding 6px 0
+  &__link-block
+    position relative
+    display inline-block
+    margin-left 52px
+  &__link:hover
+  &__link_active
+    .site-navigation__link-profile
+      background url("./images/profile_active.png") no-repeat
+  &__link-profile
+    display inline-block
+    width 20px
+    height 24px
+    background url("./images/profile.png") no-repeat
+  &__profile-dropdown
+    position absolute
+    top 20px
+    left -177px
+    z-index 400

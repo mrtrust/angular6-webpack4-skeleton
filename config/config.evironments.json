@@ -1,0 +1,17 @@
+{
+  "local": {
+    "domain": "test.dev.yourdomain.com"
+  },
+  "dev": {
+    "domain": "test.dev.yourdomain.com"
+  },
+  "qa": {
+    "domain": "test.qa.yourdomain.com"
+  },
+  "stage": {
+    "domain": "test.stage.yourdomain.com"
+  },
+  "production": {
+    "domain": "test.yourdomain.com"
+  }
+}

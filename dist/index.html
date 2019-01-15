@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skeleton Angular 6</title>
+    <meta name="description" content="Skeleton Angular 6">
+
+    <!-- base url -->
+    <base href="/">
+
+    
+    <!-- Configured Head Tags  -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+	<link rel="manifest" href="/assets/manifest.json">
+    
+
+    
+
+    
+
+    <!-- Third-party CSS/SCSS imports are both in src/app/app.module and src/styles/ -->
+    <!-- CSS/SCSS will be added here by Webpack -->
+    <!-- There will be also main and polyfill import as preload, but the real files will be added at the bottom of body tag-->
+
+<link rel="preload" href="polyfills.bundle.js" as="script"/><link rel="preload" href="main.bundle.js" as="script"/></head>
+<body>
+
+<!-- Include application here -->
+<ui-view>
+    <img style="position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto;" src="/assets/ring.svg"/>
+</ui-view>
+
+<!-- Scripts will be added here by Webpack-->
+<script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="main.bundle.js" async></script></body>
+</html>

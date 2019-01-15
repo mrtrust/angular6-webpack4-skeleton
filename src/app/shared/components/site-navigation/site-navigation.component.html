@@ -1,0 +1,27 @@
+<div class="site-navigation">
+    <div class="main-container">
+        <div class="site-navigation__wrapper">
+            <div class="site-navigation__search">
+                    <i class="site-navigation__search-icon"></i>
+            </div>
+            <div class="site-navigation__logo-block">
+                <a uiSref="{{menu.home.state}}" (click)="updateState(menu.home.state)"><img src="./images/avatar-sample.png" class="site-navigation__logo" alt="Home"/></a>
+            </div>
+            <div class="site-navigation__links">
+                <ul>
+                    <li class="site-navigation__link-block">
+
+                        <a (click)="showProfileDropdown()"
+                           class="site-navigation__link"
+                           [ngClass]="{'site-navigation__link_active': menu.profile.isActive}">
+                            <i class="site-navigation__link-profile"> </i>
+                        </a>
+                        <profile-dropdown class="site-navigation__profile-dropdown"
+                                          *ngIf="isShowProfileDropdown"
+                                          (showProfileChange)="showProfileDropdown()"></profile-dropdown>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+@require "~styles/common/variables.styl";
+
+/* Helpers */
+
+index(list, target)
+  for item, i in list
+    if item is target
+      return i
+
+  return null
+
+getPreviousMediaSize($size)
+  return null unless $size
+  $index = index($media_sizes, $size)
+  return null if $index is 0
+  $media_sizes[$index - 1]
+
+getNextMediaSize($size)
+  return null unless $size
+  $index = index($media_sizes, $size)
+  return null if $index is $media_sizes_count
+  $media_sizes[$index + 1]
+
+/* Public mixins */
+
+/*
+ * Media:
+ * Wraps properties in @media statement for target screen sizes.
+ *
+ * media(xs) => will apply for xs only
+ * media(from: xs, to: md) => will apply for xs, sm and md
+ *
+ * Sample:
+ * +media(sm)
+ *   font-size 1.2em
+ *
+ */
+
+media(target = null, from = null, to = null)
+
+  from = to = target if target
+
+  //p(target, from, to)
+
+  if typeof(from) is 'string'
+    from = null if from is xs
+    $min_width = from ? ($screen_widths[from]):null
+  else
+    $min_width = from
+
+  if typeof(to) is 'string'
+    to = getNextMediaSize(to)
+    $max_width = to ? ($screen_widths[to] - 1px):null
+  else
+    $max_width = to
+
+  if $min_width and $max_width
+    @media (min-width: $min_width) and (max-width: $max_width)
+      {block}
+  else if $min_width
+    @media (min-width: $min_width)
+      {block}
+  else if $max_width
+    @media (max-width: $max_width)
+      {block}
+  else
+    {block}
+
+/*
+* Hide:
+* Hides a block on a target screen size.
+*
+* hide(xs)
+*
+*/
+
+media-hide(target = null, from = null, to = null)
+  +media(target, from, to)
+    display none !important
+
+/*
+* Show:
+* Shows block on a target screen size.
+*
+* show(xs)
+*
+*/
+
+media-show(target = null, from = null, to = null)
+  $hideTo = getPreviousMediaSize(from) or getPreviousMediaSize(target)
+  $hideFrom = getNextMediaSize(to) or getNextMediaSize(target)
+
+  if $hideTo
+    +media(to:$hideTo)
+      display none
+
+  if $hideFrom
+    +media(from:$hideFrom)
+      display none
+      

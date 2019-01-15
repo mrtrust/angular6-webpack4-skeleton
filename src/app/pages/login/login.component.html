@@ -1,0 +1,63 @@
+<auth-tile>
+    <div class="login-form">
+        <div class="login-form__wrapper">
+            <form class="form-auth" [formGroup]="loginForm">
+                <!--Email-->
+                <div class="form-group">
+                    <label class="label">Email</label>
+                    <div class="input-group">
+                        <input class="form-control form-control_auth"
+
+                               type="email"
+                               autocomplete="email"
+                               name="email"
+                               formControlName="email"
+                        />
+                    </div>
+                </div>
+
+                <!--Password-->
+                <div class="form-group">
+                    <label class="label">Password</label>
+                    <div class="input-group">
+                        <input class="form-control form-control_auth"
+
+                               [type]="passwordFieldType"
+                               name="password"
+                               autocomplete="password"
+                               formControlName="password"
+                        />
+                    </div>
+                </div>
+
+                <!--Keep me logged in-->
+                <div class="form-group login-form__remember-me-box">
+                    <div class="input-group">
+                        <input type="checkbox"/> Remember me
+                    </div>
+                    <div class="input-group login-form__show-password">
+                        <a class="login-form__show-password-link" (click)="toggleVisibility()">Show password</a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="form-button login-form__submit-button" type="submit"
+                            [ngClass]="{'login-form__submit-button_invalid': loginForm.invalid}"
+                            [disabled]="authenticating"
+                            (click)="login()">Log in
+                    </button>
+                </div>
+                <div class="form-group login-form__forget-password">
+                    <a uiSref="app.forget-password">Forget password?</a>
+                </div>
+
+                <div class="form-error" *ngIf="errorMessage">{{errorMessage}}</div>
+            </form>
+        </div>
+
+        <div class="login-form__form-bottom">
+            <p class="login-form__no-account">Don't have an account? <a class="login-form__sign-up" uiSref="app.signup">Sign
+                up</a></p>
+        </div>
+    </div>
+</auth-tile>

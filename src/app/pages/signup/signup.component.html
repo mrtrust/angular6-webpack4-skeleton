@@ -1,0 +1,68 @@
+<auth-tile>
+    <div class="signup-form">
+        <div class="signup-form__wrapper">
+            <form class="form-auth" [formGroup]="signupForm">
+                <!--Email-->
+                <div class="form-group">
+                    <label class="label">Email</label>
+                    <div class="input-group">
+                        <input class="form-control form-control_auth"
+
+                               type="email"
+                               autocomplete="email"
+                               name="email"
+                               formControlName="email"
+                        />
+                    </div>
+                </div>
+
+                <!--Full name-->
+                <div class="form-group">
+                    <label class="label">Full Name</label>
+                    <div class="input-group">
+                        <input class="form-control form-control_auth"
+                               name="name"
+                               formControlName="name"
+                        />
+                    </div>
+                </div>
+
+                <!--Password-->
+                <div class="form-group">
+                    <label class="label">Password</label>
+                    <div class="input-group">
+                        <input class="form-control form-control_auth"
+
+                               type="password"
+                               name="password"
+                               autocomplete="password"
+                               formControlName="password"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group signup-form__policies">
+                    By signing up, you agree to our <a class="signup-form__policies-link" uiSref="app.tos">Terms of
+                    Use</a>, <a uiSref="app.privacy" class="signup-form__policies-link">Data Policy</a> and <a
+                        uiSref="app.cookie" class="signup-form__policies-link">Cookies Policy</a>.
+                </div>
+
+                <div class="form-group">
+                    <button class="form-button signup-form__submit-button" type="submit"
+                            [ngClass]="{'signup-form__submit-button_invalid': signupForm.invalid}"
+                            [disabled]="signining"
+                            (click)="signup()">Sign Up
+                    </button>
+                </div>
+
+
+                <div class="form-error" *ngIf="errorMessage">{{errorMessage}}</div>
+            </form>
+        </div>
+
+        <div class="signup-form__form-bottom">
+            <p class="signup-form__have-account">Already have an account? <a class="signup-form__log-in"
+                                                                                       uiSref="app.login">Log In</a></p>
+        </div>
+    </div>
+</auth-tile>
