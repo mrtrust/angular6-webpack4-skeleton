@@ -25,7 +25,8 @@
     "types": [
       "node",
       "webpack",
-      "jquery"
+      "jquery",
+      "jasmine"
     ]
   },
   "exclude": [

@@ -5,9 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthenticationService } from '../../core/services/authentication.service';
 
-
 /**
- * Component for admin login
+ * Component for login
  */
 @Component({
   styleUrls: ['login.component.styl'],

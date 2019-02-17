@@ -42,9 +42,12 @@ import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 
 /**
- * ALL Firefox browsers require the following to support `@angular/animation`.
+ * IE10 and IE11 requires the following to support `@angular/animation`.
+ *
+ * Dont need to import anymore !
+ * https://blog.angular.io/version-6-of-angular-now-available-cc56b0efa7a4
  */
-import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+//import 'web-animations-js';  // Run `npm install --save web-animations-js
 
 /***************************************************************************************************
  * Zone JS is required by Angular itself.

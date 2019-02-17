@@ -19,7 +19,7 @@ const VisualizerPlugin = require('webpack-visualizer-plugin');
 
 const TEMPLATE_PATH = './src/index.ejs';
 const TEMPLATE_HTML = 'index.html';
-const ENVIRONMENTS = require('./config.evironments');
+const ENVIRONMENTS = require('./config.environments');
 
 /**
  * Webpack configuration
@@ -32,7 +32,14 @@ module.exports = function (options) {
   const METADATA = Object.assign({}, buildUtils.DEFAULT_METADATA, options.metadata || {});
   const ngcWebpackConfig = buildUtils.ngcWebpackSetup(isProd, METADATA);
   const supportES2015 = buildUtils.supportES2015(METADATA.tsConfigPath);
-  const API_METADATA = ENVIRONMENTS[options.env] || [];
+
+  let API_METADATA;
+  //local env can be different, if local env exists, use it instead, else use default env file
+  if (options.env === 'local' && LOCAL_DATA) {
+    API_METADATA = LOCAL_DATA;
+  } else {
+    API_METADATA = ENVIRONMENTS[options.env] || [];
+  }
 
   const entry = {
     polyfills: './src/polyfills.ts',

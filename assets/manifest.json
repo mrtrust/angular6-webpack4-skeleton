@@ -1,10 +1,10 @@
 {
   "name": "Skeleton Angular 6",
-  "short_name": "Skeleton Angular 6, Webpack 4, UIRouter, Webpack Dev Server, HMR, AOT",
+  "short_name": "Skeleton Angular 6",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "Skeleton Angular 6",
+  "description": "Skeleton Angular 6, Webpack 4, UIRouter, Webpack Dev Server, HMR, AOT, Karma, Jasmine, Protractor, E2E, Docker",
   "icons": [
     {
       "src": "/assets/favicon.png",

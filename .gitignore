@@ -14,4 +14,6 @@ dist/webpack-bundle-analyzer-report.json
 dist/webpack-bundle-analyzer-report.htm
 aot
 webpack-cache
+coverage
 
+/config/config.environment.local.json
