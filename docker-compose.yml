@@ -1,17 +1,18 @@
 version: '3'
 services:
-  peoplefirst:
+  skeleton-angular-6:
     build:
       context: .
       dockerfile: Dockerfile-dev
-    container_name: PeopleFirst
+    container_name: skeleton-angular-6
     networks:
-      - peoplefirst
+      - skeleton-angular-6
     ports:
       - '3000:3000'
     environment:
-     - HOST=0.0.0.0
+     #- HOST=0.0.0.0
+      - HOST_CHECK=false
     command: npm run start
 networks:
-  peoplefirst:
+  skeleton-angular-6:
     driver: bridge

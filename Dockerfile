@@ -1,13 +1,13 @@
 # Usage:
 #
 #    Build image:
-#    docker build -t peoplefirst .
+#    docker build -t skeleton-angular-6 .
 #
 #    Run image (on localhost:8080):
-#    docker run --name peoplefirst -p 8080:80 peoplefirst
+#    docker run --name skeleton-angular-6 -p 8080:80 skeleton-angular-6
 #
 #    Run image as virtual host (read more: https://github.com/jwilder/nginx-proxy):
-#    docker run -e VIRTUAL_HOST=peoplefirst.your-domain.com --name peoplefirst peoplefirst
+#    docker run -e VIRTUAL_HOST=skeleton-angular-6.your-domain.com --name skeleton-angular-6 skeleton-angular-6
 
 # Stage 1, based on Node.js, to build and compile Angular
 
