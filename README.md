@@ -15,7 +15,7 @@
  (please note dev|qa uses wepback.dev config, stage|prod uses webpack.prod config), JIT builds
 - Add `build:(local|dev|qa|stage|prod|local)::aot` to build AoT builds
 - `npm run test` - to start watch karma tests described in src/\*\*.\*\*.spec.ts files,
-to make Karma work correct TS version is 2.8m otherwise, global Jasmine vars are not available
+to make Karma work correct TS version is 2.8 otherwise, global Jasmine vars are not available
 - `npm run test:single` - for single run
 - `npm run e2e` - to start E2E tests described in src/\*\*.\*\*.e2e.ts files,
 e2e script uses http-server and  tests complied dist directory
@@ -87,4 +87,4 @@ To create and run docker image on [localhost:8080](localhost:8080) as part of la
 And that's all, you can open browser and go to [localhost:8080](localhost:8080).
 ### Login into docker container
 
-`docker exec -t -i angular-starter /bin/bash`
+`docker exec -t -i skeleton-angular-6 /bin/bash`

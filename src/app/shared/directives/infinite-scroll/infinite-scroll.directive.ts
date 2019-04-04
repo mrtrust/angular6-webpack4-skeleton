@@ -87,9 +87,9 @@ export class InfiniteScrollDirective implements AfterViewInit {
 
   isUserScrollingDown = (positions) => {
     return positions[0].sT < positions[1].sT;
-  }
+  };
 
   isScrollExpectedPercent = (position) => {
     return ((position.sT + position.cH) / position.sH) > (this.scrollPercent / 100);
-  }
+  };
 }
